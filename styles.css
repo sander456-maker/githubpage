@@ -1,0 +1,172 @@
+/* Reset de márgenes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ff7a7a, #dfa840); /* Gradiente de fondo */
+    color: #2d2d2d;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Video de Fondo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contenedor de la Página */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos de Encabezado */
+header {
+    background-color: rgba(129, 32, 3, 0.8);
+    padding: 1.5rem;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out forwards;
+    position: relative;
+    width: calc(100% - 200px); /* Dejar espacio para el menú */
+    left: 200px; /* Alinear con el menú */
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+}
+
+header h1 {
+    flex: 1;
+    margin: 0;
+    text-align: left; /* Asegura que el texto esté centrado dentro del h1 */
+}
+
+/* Menú de Navegación en el lado izquierdo */
+nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(187, 37, 229, 0.8);
+    padding: 1rem;
+    position: fixed;
+    left: 0; /* Menú en el lado izquierdo */
+    top: 0; /* Empieza desde el principio */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    width: 200px;
+    z-index: 2;
+}
+
+
+nav a {
+    color: white;
+    margin: 15px 0;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+    transform: translateX(5px); /* Mueve ligeramente a la derecha al pasar el cursor */
+}
+
+/* Estilos para Secciones */
+section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 2s ease forwards;
+    perspective: 1000px;
+}
+
+h1, h2 {
+    color: #fff7a1;
+    text-align: left;
+}
+
+/* Estilos de Imágenes */
+.img-container {
+    margin: 2rem 0;
+    text-align: center;
+    perspective: 1000px;
+}
+
+.img-container img {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un sombreado */
+    transition: transform 0.6s;
+    transform: rotateX(5deg);
+}
+
+
+.img-container img:hover {
+    transform: scale(1.05) rotateX(10deg); /* Efecto 3D en el hover */
+}
+
+/* Estilos para el Pie de Página */
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateZ(-20px); }
+    to { opacity: 1; transform: translateZ(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px) rotateX(10deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px) rotateX(-10deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .img-container img {
+        width: 100%;
+    }
+    nav {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        position: static;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+    nav a {
+        margin: 10px;
+    }
+}
